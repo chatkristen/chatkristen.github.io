@@ -151,8 +151,8 @@ img {
   height: 12px;
   background-color: var(--lime-color);
   position: absolute;
-  top: .5rem;
-  right: .75rem;
+  top: .1rem;
+  right: .1rem;
   border-radius: 50%;
   border: 2px solid var(--container-color);
   -webkit-animation: indicator 1s ease infinite;
