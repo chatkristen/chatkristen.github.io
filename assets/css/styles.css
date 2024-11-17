@@ -33,7 +33,11 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-image: url('/assets/img/SVG-background-animation.gif');
-  background-size: cover;
+  background-size:100%;
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  height:100%;
+  width:100%;
   background-color: var(--body-color);
   color: var(--text-color);
 }
