@@ -158,7 +158,10 @@
       avatar.src = msg.type === 'left' ? 'https://i.pravatar.cc/32?img=12' : 'https://i.pravatar.cc/32?img=5';
       const bubble = document.createElement('div');
       bubble.className = `bubble ${msg.type}`;
-      bubble.innerHTML = msg.text + `<div class='timestamp'>09/03/2025 ${new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})} <span class='tick'>✔✔</span></div>`;
+      const time = new Date();
+      const formattedTime = time.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+      const date = `${String(time.getDate()).padStart(2, '0')}/${String(time.getMonth()+1).padStart(2, '0')}/${time.getFullYear()}`;
+      bubble.innerHTML = msg.text + `<div class='timestamp'>${date} ${formattedTime} <span class='tick'>✔✔</span></div>`;
       row.appendChild(avatar);
       row.appendChild(bubble);
       chatBox.appendChild(row);
@@ -183,7 +186,7 @@
       if (i < messages.length) {
         showTyping(() => {
           appendBubble(messages[i]);
-          const nextDelay = Math.max(2000, messages[i].text.length * 30);
+          const nextDelay = Math.max(2000, messages[i].text.replace(/<[^>]+>/g, '').length * 30);
           i++;
           setTimeout(showNext, nextDelay);
         });
