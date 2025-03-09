@@ -183,8 +183,9 @@
       if (i < messages.length) {
         showTyping(() => {
           appendBubble(messages[i]);
+          const nextDelay = Math.max(2000, messages[i].text.length * 30);
           i++;
-          setTimeout(showNext, 2500);
+          setTimeout(showNext, nextDelay);
         });
       }
     }
