@@ -59,9 +59,10 @@
       position: relative;
       animation: fadeIn 0.5s ease;
       word-wrap: break-word;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
     .bubble.left {
-      background: #fff;
+      background: #ffffff;
       border-top-left-radius: 0;
     }
     .bubble.right {
@@ -85,6 +86,7 @@
       display: inline-flex;
       gap: 4px;
       margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
     .typing-indicator span {
       width: 6px;
@@ -109,11 +111,20 @@
       font-size: 12px;
       color: gray;
     }
+    .notification-bar {
+      background-color: #e0f7fa;
+      color: #006064;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      animation: fadeIn 1s ease;
+    }
   </style>
 </head>
 <body>
   <div class="chat-container">
     <div class="chat-header">Bible Story</div>
+    <div class="notification-bar" id="notifBar">📩 Pesan baru masuk...</div>
     <div class="chat-box" id="chatBox"></div>
     <div class="chat-footer">Visit <a href="https://chatkristen.com" class="text-blue-600 underline">chatkristen.com</a></div>
     <audio id="notif">
@@ -124,6 +135,7 @@
   <script>
     const chatBox = document.getElementById('chatBox');
     const notif = document.getElementById('notif');
+    const notifBar = document.getElementById('notifBar');
     const messages = [
       { type: 'left', text: 'Hai, izinkan aku menceritakan kisah yang indah hari ini...' },
       { type: 'right', text: 'Pada suatu hari, Yesus berjalan di tepi danau Galilea.' },
@@ -178,7 +190,10 @@
     }
 
     window.onload = () => {
-      showNext();
+      setTimeout(() => {
+        notifBar.style.display = 'none';
+        showNext();
+      }, 2000);
     }
   </script>
 </body>
