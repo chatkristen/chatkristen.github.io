@@ -33,9 +33,15 @@ body {
     margin-right: 10px;
 }
 
-#profileName, #username {
-    font-size: 14px;
+#profileName {
+    font-size: 16px; /* Lebih besar */
     font-weight: bold;
+    color: #222; /* Warna gelap untuk keterbacaan */
+}
+
+#username {
+    font-size: 14px; /* Lebih kecil dari Nama */
+    color: #555; /* Warna sedikit lebih terang */
 }
 
 .quote {
