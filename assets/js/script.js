@@ -1,12 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetchQuotes();
-});
-
 let quotes = [];
 
-async function fetchQuotes() {
+async function loadQuotes() {
     try {
-        const response = await fetch("/data/quotes.json");
+        const response = await fetch("quotes.json");
         quotes = await response.json();
         tampilkanQuote();
     } catch (error) {
@@ -21,12 +17,12 @@ function tampilkanQuote() {
     const hashtagsElement = document.getElementById("hashtags");
     const container = document.getElementById("quoteContainer");
     const circles = document.querySelectorAll(".circle");
-    const profileName = document.getElementById("profileName");
-    const username = document.getElementById("username");
+    const profileText = document.querySelectorAll("#profileName, #username");
 
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    const newBgColor = randomColor();
-    const textColor = getTextColor(newBgColor);
+    const newBgColor1 = randomColor();
+    const newBgColor2 = randomColor();
+    const textColor = getTextColor(newBgColor1);
 
     quoteElement.style.opacity = 0;
     hashtagsElement.style.opacity = 0;
@@ -35,15 +31,21 @@ function tampilkanQuote() {
         quoteElement.innerText = quotes[randomIndex].text;
         hashtagsElement.innerText = quotes[randomIndex].tags;
 
-        container.style.background = newBgColor;
+        // Warna gradient smooth
+        container.style.transition = "background 2s ease-in-out";
+        container.style.background = `linear-gradient(135deg, ${newBgColor1}, ${newBgColor2})`;
+
         container.style.color = textColor;
-        profileName.style.color = darkenColor(textColor, 30);
-        username.style.color = darkenColor(textColor, 30);
+
+        profileText.forEach(el => {
+            el.style.color = textColor;
+        });
 
         quoteElement.style.opacity = 1;
         hashtagsElement.style.opacity = 1;
 
         circles.forEach((circle, index) => {
+            circle.style.transition = "background 0.5s ease";
             circle.style.background = (index === randomIndex % circles.length) ? "#ff5733" : "#ccc";
         });
 
@@ -51,44 +53,25 @@ function tampilkanQuote() {
     }, 1000);
 }
 
-// Fungsi untuk mendapatkan warna acak
+function hitungWaktuTampil(quote) {
+    const words = quote.split(" ").length;
+    return words * 500 + 2000;
+}
+
 function randomColor() {
-    const letters = "0123456789ABCDEF";
+    const letters = "89ABCDEF"; // Warna lebih soft
     let color = "#";
     for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * letters.length)];
     }
     return color;
 }
 
-// Fungsi untuk mendapatkan warna teks yang kontras
 function getTextColor(bgColor) {
-    const hex = bgColor.replace("#", "");
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    return brightness > 128 ? "#222" : "#fff";
+    const r = parseInt(bgColor.substr(1, 2), 16);
+    const g = parseInt(bgColor.substr(3, 2), 16);
+    const b = parseInt(bgColor.substr(5, 2), 16);
+    return (r * 0.299 + g * 0.587 + b * 0.114) > 186 ? "#000" : "#FFF";
 }
 
-// Fungsi untuk menggelapkan warna agar tetap kontras
-function darkenColor(hex, percent) {
-    let num = parseInt(hex.slice(1), 16),
-        amt = Math.round(2.55 * percent),
-        r = (num >> 16) - amt,
-        g = ((num >> 8) & 0x00FF) - amt,
-        b = (num & 0x0000FF) - amt;
-
-    return "#" + (
-        0x1000000 +
-        (r < 255 ? (r < 1 ? 0 : r) : 255) * 0x10000 +
-        (g < 255 ? (g < 1 ? 0 : g) : 255) * 0x100 +
-        (b < 255 ? (b < 1 ? 0 : b) : 255)
-    ).toString(16).slice(1);
-}
-
-// Fungsi menentukan waktu tampilan quote
-function hitungWaktuTampil(quote) {
-    return Math.max(3000, quote.length * 100);
-}
+document.addEventListener("DOMContentLoaded", loadQuotes);
