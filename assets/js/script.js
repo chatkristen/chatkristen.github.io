@@ -1,16 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-    tampilkanQuote();
+    fetchQuotes();
 });
+
+let quotes = [];
+
+async function fetchQuotes() {
+    try {
+        const response = await fetch("/data/quotes.json");
+        quotes = await response.json();
+        tampilkanQuote();
+    } catch (error) {
+        console.error("Gagal memuat quotes:", error);
+    }
+}
 
 function tampilkanQuote() {
     if (quotes.length === 0) return;
 
-    const quoteElement = document.getElementById('quote');
-    const hashtagsElement = document.getElementById('hashtags');
-    const container = document.getElementById('quoteContainer');
-    const circles = document.querySelectorAll('.circle');
-    const profileName = document.getElementById('profileName');
-    const username = document.getElementById('username');
+    const quoteElement = document.getElementById("quote");
+    const hashtagsElement = document.getElementById("hashtags");
+    const container = document.getElementById("quoteContainer");
+    const circles = document.querySelectorAll(".circle");
+    const profileName = document.getElementById("profileName");
+    const username = document.getElementById("username");
 
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const newBgColor = randomColor();
