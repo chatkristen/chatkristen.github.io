@@ -34,9 +34,9 @@ body {
 }
 
 #profileName {
-    font-size: 16px; /* Lebih besar */
+    font-size: 16px;
     font-weight: bold;
-    color: #222; /* Warna gelap untuk keterbacaan */
+    color: #222;
 }
 
 #username {
@@ -78,10 +78,11 @@ footer {
     bottom: 20px;
     font-size: 14px;
     color: white;
+    margin-top: 30px;
 }
 
 .logo {
     width: 120px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
