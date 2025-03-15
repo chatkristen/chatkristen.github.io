@@ -2,7 +2,7 @@ let quotes = [];
 
 async function loadQuotes() {
     try {
-        const response = await fetch("quotes.json");
+        const response = await fetch("/data/quotes.json");
         quotes = await response.json();
         tampilkanQuote();
     } catch (error) {
