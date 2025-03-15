@@ -37,7 +37,7 @@ function tampilkanQuote() {
 
         container.style.background = newBgColor;
         container.style.color = textColor;
-        profileName.style.color = textColor;
+        profileName.style.color = darkenColor(textColor, 30);
         username.style.color = darkenColor(textColor, 30);
 
         quoteElement.style.opacity = 1;
