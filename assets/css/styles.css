@@ -66,6 +66,10 @@ body, html {
   left: 80px;
 }
 
+#cloudsBack, #cloudsFront {
+  transition: opacity 1.5s ease;
+}
+
 @keyframes moveCloud {
   0% { left: -300px; }
   100% { left: 120%; }
