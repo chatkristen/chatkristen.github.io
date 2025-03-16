@@ -95,20 +95,15 @@ body, html {
   100% { opacity: 1; }
 }
 
-.bird {
+.bird-svg {
   position: absolute;
-  animation-name: flyBird;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  z-index: 10;
+  animation: fly linear infinite;
 }
 
-@keyframes flyBird {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(120vw); /* Terbang ke kanan keluar layar */
-  }
+@keyframes fly {
+  from { transform: translateX(0); }
+  to { transform: translateX(120vw); }
 }
 
 /* Sayap mengepak */
