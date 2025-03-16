@@ -7,6 +7,12 @@ function updateSkyByTime() {
   const moon = document.getElementById("moon");
   const stars = document.getElementById("stars");
 
+  const quoteText = document.getElementById("quoteText");
+  const quoteTags = document.getElementById("quoteTags");
+
+  const cloudBack = document.getElementById("cloudsBack");
+  const cloudFront = document.getElementById("cloudsFront");
+
   if (hour >= 5 && hour < 7) {
     // Subuh
     sky.style.background = "linear-gradient(#5a88d2, #fff)";
@@ -14,7 +20,12 @@ function updateSkyByTime() {
     sun.style.opacity = 0.5;
     moon.style.opacity = 0;
     stars.style.display = "none";
+    quoteText.style.color = "#333";
+    quoteTags.style.color = "#333";
+    cloudBack.style.opacity = "0.8";
+    cloudFront.style.opacity = "0.8";
     setAudio("/assets/audio/morning.mp3");
+
   } else if (hour >= 7 && hour < 17) {
     // Siang
     sky.style.background = "linear-gradient(#87CEEB, #ffffff)";
@@ -22,7 +33,12 @@ function updateSkyByTime() {
     sun.style.opacity = 1;
     moon.style.opacity = 0;
     stars.style.display = "none";
+    quoteText.style.color = "#222";
+    quoteTags.style.color = "#222";
+    cloudBack.style.opacity = "1";
+    cloudFront.style.opacity = "1";
     setAudio("/assets/audio/day.mp3");
+
   } else if (hour >= 17 && hour < 19) {
     // Senja
     sky.style.background = "linear-gradient(#FFB347, #FFCC33)";
@@ -30,7 +46,12 @@ function updateSkyByTime() {
     sun.style.opacity = 0.7;
     moon.style.opacity = 0.3;
     stars.style.display = "none";
+    quoteText.style.color = "#fff";
+    quoteTags.style.color = "#fff";
+    cloudBack.style.opacity = "0.6"; // lebih tipis
+    cloudFront.style.opacity = "0.6";
     setAudio("/assets/audio/evening.mp3");
+
   } else {
     // Malam
     sky.style.background = "linear-gradient(#1a1a2e, #0f0f1f)";
@@ -38,17 +59,11 @@ function updateSkyByTime() {
     moon.style.opacity = 1;
     moon.style.bottom = "35%";
     stars.style.display = "block";
+    quoteText.style.color = "#fff";
+    quoteTags.style.color = "#fff";
+    cloudBack.style.opacity = "0.3"; // makin malam makin tipis
+    cloudFront.style.opacity = "0.3";
     setAudio("/assets/audio/night.mp3");
-  }
-  quoteText.classList.remove("quote-dark", "quote-light");
-  quoteTags.classList.remove("quote-dark", "quote-light");
-  
-  if (hour >= 17 || hour < 5) {
-    quoteText.classList.add("quote-dark");
-    quoteTags.classList.add("quote-dark");
-  } else {
-    quoteText.classList.add("quote-light");
-    quoteTags.classList.add("quote-light");
   }
 }
 
