@@ -156,3 +156,45 @@ body, html {
   background: #ccc;
 }
 
+.quote-card {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  z-index: 5;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left;
+}
+
+.quote-header {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+}
+
+.social-handle {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.quote-content {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.quote-tags {
+  font-size: 14px;
+  color: #ccc;
+}
