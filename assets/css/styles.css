@@ -95,19 +95,23 @@ body, html {
   100% { opacity: 1; }
 }
 
-.bird {
+.bird-svg {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: url('/assets/img/bird.png') no-repeat center;
-  background-size: contain;
-  animation: flyBird linear infinite;
   z-index: 3;
+  animation: flyBirdSvg linear infinite;
 }
 
-@keyframes flyBird {
-  0% { left: -50px; top: 30%; }
-  100% { left: 110%; top: 20%; }
+@keyframes flyBirdSvg {
+  0% {
+    transform: translateX(-10%) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(-10vh) scale(1.1) rotate(5deg);
+    opacity: 0.6;
+  }
 }
 
 .rain-drop {
