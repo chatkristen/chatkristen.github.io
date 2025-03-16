@@ -40,6 +40,16 @@ function updateSkyByTime() {
     stars.style.display = "block";
     setAudio("/assets/audio/night.mp3");
   }
+  quoteText.classList.remove("quote-dark", "quote-light");
+  quoteTags.classList.remove("quote-dark", "quote-light");
+  
+  if (hour >= 17 || hour < 5) {
+    quoteText.classList.add("quote-dark");
+    quoteTags.classList.add("quote-dark");
+  } else {
+    quoteText.classList.add("quote-light");
+    quoteTags.classList.add("quote-light");
+  }
 }
 
 function setAudio(src) {
