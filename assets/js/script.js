@@ -81,19 +81,30 @@ function createClouds(containerId, count, speed) {
 function createBirds() {
   const birdsContainer = document.getElementById("birds");
   birdsContainer.innerHTML = '';
+
   const hour = new Date().getHours();
   if (hour >= 6 && hour < 10) {
-    const birdTemplate = document.getElementById("birdTemplate");
     for (let i = 0; i < 4; i++) {
-      const bird = birdTemplate.cloneNode(true);
-      bird.removeAttribute("id");
-      bird.style.display = "block";
-      bird.classList.add("bird-svg");
-      bird.style.top = `${Math.random() * 60}%`;
-      bird.style.left = `-${Math.random() * 20 + 10}px`;
-      bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
-      bird.style.animationDelay = `${Math.random() * 5}s`;
-      birdsContainer.appendChild(bird);
+      const birdWrapper = document.createElement("div");
+      birdWrapper.classList.add("bird-svg");
+      birdWrapper.style.position = "absolute";
+      birdWrapper.style.top = `${Math.random() * 60}%`;
+      birdWrapper.style.left = `-${Math.random() * 20 + 10}px`;
+      birdWrapper.style.animation = "flyRight linear infinite";
+      birdWrapper.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
+      birdWrapper.style.animationDelay = `${Math.random() * 5}s`;
+
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("viewBox", "0 0 100 100");
+      svg.setAttribute("width", "60");
+      svg.setAttribute("height", "60");
+
+      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#birdSymbol");
+
+      svg.appendChild(use);
+      birdWrapper.appendChild(svg);
+      birdsContainer.appendChild(birdWrapper);
     }
   }
 }
