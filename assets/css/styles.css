@@ -97,20 +97,17 @@ body, html {
 
 .bird-svg {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  z-index: 3;
-  animation: flyBirdSvg linear infinite;
+  animation-name: flyBird;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-@keyframes flyBirdSvg {
-  0% {
-    transform: translateX(-10%) translateY(0) scale(1) rotate(0deg);
-    opacity: 1;
+@keyframes flyBird {
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(120vw) translateY(-10vh) scale(1.1) rotate(5deg);
-    opacity: 0.6;
+  to {
+    transform: translateX(120vw); /* Terbang ke kanan keluar layar */
   }
 }
 
