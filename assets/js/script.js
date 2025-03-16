@@ -109,9 +109,11 @@ function createBirds() {
 function createRainEffect() {
   const rainContainer = document.getElementById("rain");
   const sun = document.getElementById("sun");
+  const sky = document.getElementById("sky");
   const cloudBack = document.getElementById("cloudsBack");
   const cloudFront = document.getElementById("cloudsFront");
   rainContainer.innerHTML = '';
+  sky.style.background = "linear-gradient(#2a2a2a, #3e3e3e)";
   const shouldRain = Math.random() < 0.3;
   if (shouldRain) {
     for (let i = 0; i < 80; i++) {
