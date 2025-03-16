@@ -142,3 +142,11 @@ function initAllEffects() {
 }
 
 document.addEventListener("DOMContentLoaded", initAllEffects);
+
+const audio = document.getElementById("bgAudio");
+const playBtn = document.getElementById("playAudioBtn");
+
+playBtn.addEventListener("click", () => {
+  audio.play();
+  playBtn.style.display = "none"; // sembunyikan tombol setelah diklik
+});
