@@ -156,6 +156,16 @@ body, html {
   background: #ccc;
 }
 
+.cloud-dark .cloud {
+  background: #cccccc;
+  filter: brightness(0.7);
+}
+
+.cloud-dark .cloud::before,
+.cloud-dark .cloud::after {
+  background: #cccccc;
+}
+
 .quote-card {
   position: absolute;
   top: 20px;
