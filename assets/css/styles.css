@@ -95,65 +95,16 @@ body, html {
   100% { opacity: 1; }
 }
 
-#birds {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 4;
-      pointer-events: none;
-    }
+.bird {
+  position: absolute;
+  height: auto;
+  animation: fly linear infinite;
+}
 
-    .bird-svg {
-      position: absolute;
-      z-index: 10;
-      animation: fly linear infinite;
-    }
-
-    @keyframes fly {
-      from { transform: translateX(0); }
-      to { transform: translateX(120vw); }
-    }
-
-    .wing, .bird-head, .bird-tail {
-      transform-box: fill-box;
-    }
-
-    .left-wing {
-      transform-origin: 35px 55px;
-      animation: flap 1s ease-in-out infinite;
-    }
-
-    .right-wing {
-      transform-origin: 45px 55px;
-      animation: flap 1s ease-in-out infinite;
-    }
-
-    .bird-head {
-      transform-origin: 66px 48px;
-      animation: nod 2s ease-in-out infinite;
-    }
-
-    .bird-tail {
-      transform-origin: 32px 60px;
-      animation: tail-wiggle 2s ease-in-out infinite;
-    }
-
-    @keyframes flap {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(-20deg); }
-    }
-
-    @keyframes nod {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(2px); }
-    }
-
-    @keyframes tail-wiggle {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(10deg); }
-    }
+@keyframes fly {
+  0%   { transform: translateX(-100px); }
+  100% { transform: translateX(120vw); }
+}
 
 .rain-drop {
   position: absolute;
