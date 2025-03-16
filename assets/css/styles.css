@@ -146,3 +146,13 @@ body, html {
   filter: blur(1px);
   opacity: 0.9;
 }
+
+.cloud.rainy {
+  background: #ccc;
+}
+
+.cloud.rainy::before,
+.cloud.rainy::after {
+  background: #ccc;
+}
+
