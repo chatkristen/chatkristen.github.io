@@ -156,18 +156,24 @@ function initAllEffects() {
 }
 
 const audio = document.getElementById("bgAudio");
-const playBtn = document.getElementById("playAudioBtn");
+  const playBtn = document.getElementById("playAudioBtn");
+  const notif = document.getElementById("audioNotif");
 
-playBtn.addEventListener("click", () => {
-  audio.play()
-    .then(() => {
-      playBtn.style.display = "none"; // sembunyikan tombol saat berhasil
-    })
-    .catch(err => {
-      console.error("Audio autoplay ditolak:", err);
-      alert("Klik sekali lagi jika audio belum diputar.");
-    });
-});
+  playBtn.addEventListener("click", () => {
+    audio.play()
+      .then(() => {
+        notif.style.display = "none"; // Sembunyikan notif setelah klik
+      })
+      .catch(err => {
+        notif.innerHTML = "⚠️ Tidak bisa memutar musik. Silakan izinkan audio di browser.";
+        setTimeout(() => notif.style.display = "none", 3000);
+      });
+  });
+
+  // Tampilkan notifikasi secara otomatis saat halaman load
+  window.addEventListener("DOMContentLoaded", () => {
+    notif.style.display = "flex";
+  });
 
 let quotes = [];
   let currentQuoteIndex = 0;
