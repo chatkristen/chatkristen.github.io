@@ -12,26 +12,36 @@
     <div class="stars" id="stars"></div>
     <div class="clouds-back" id="cloudsBack"></div>
     <div class="clouds-front" id="cloudsFront"></div>
-    <div class="birds" id="birds"></div>
     <div class="rain" id="rain"></div>
-    <audio id="bgAudio" autoplay loop></audio>
-  </div>
-  <div class="quote-card-glass">
-  <div class="quote-profile">
-    <img src="/assets/img/logo.png" alt="Profile" class="profile-img">
-    <div>
-      <div class="quote-name">Nama Media Sosial</div>
-      <div class="quote-handle">@reallygreatsite</div>
+
+    <div class="bird" id="bird">
+      <svg viewBox="0 0 100 100" width="60" height="60">
+        <ellipse cx="50" cy="50" rx="20" ry="10" fill="#333" />
+        <circle cx="65" cy="45" r="6" fill="#333" />
+        <circle cx="67" cy="44" r="1.5" fill="white" />
+        <path d="M30 50 Q20 30 40 40" fill="#555">
+          <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
+            values="M30 50 Q20 30 40 40; M30 50 Q25 25 40 35; M30 50 Q20 30 40 40" />
+        </path>
+        <path d="M70 50 Q80 30 60 40" fill="#555">
+          <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
+            values="M70 50 Q80 30 60 40; M70 50 Q75 25 60 35; M70 50 Q80 30 60 40" />
+        </path>
+      </svg>
     </div>
   </div>
-  <div class="quote-text">
-    Rumah bukan hanya sebuah tempat,<br>
-    tetapi itu adalah perasaan
+
+  <div class="quote-card" id="quoteCard">
+    <div class="quote-header">
+      <img src="profile.jpg" alt="Profile" class="profile-img">
+      <div>
+        <div class="social-name">Nama Media Sosial</div>
+        <div class="social-handle">@reallygreatsite</div>
+      </div>
+    </div>
+    <div class="quote-content" id="quoteText">Loading quote...</div>
+    <div class="quote-tags" id="quoteTags">#motivasi</div>
   </div>
-  <div class="quote-tags">
-    #katabijak #motivasi #kehidupan
-  </div>
-</div>
   <script src="/assets/js/script.js"></script>
 </body>
 </html>
