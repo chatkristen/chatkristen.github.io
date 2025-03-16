@@ -95,15 +95,15 @@ function createBirds() {
 
 function createRainEffect() {
   const rainContainer = document.getElementById("rain");
+  const sun = document.getElementById("sun");
+  const cloudBack = document.getElementById("cloudsBack");
+  const cloudFront = document.getElementById("cloudsFront");
+
   rainContainer.innerHTML = '';
   const shouldRain = Math.random() < 0.3; // 30% kemungkinan hujan
 
-  // Hapus class 'rainy' dari semua awan dulu
-  document.querySelectorAll('.cloud').forEach(cloud => {
-    cloud.classList.remove('rainy');
-  });
-
   if (shouldRain) {
+    // Tambahkan efek hujan
     for (let i = 0; i < 80; i++) {
       const drop = document.createElement("div");
       drop.classList.add("rain-drop");
@@ -113,12 +113,23 @@ function createRainEffect() {
       rainContainer.appendChild(drop);
     }
 
-    // Tambahkan class 'rainy' ke semua awan saat hujan
-    document.querySelectorAll('.cloud').forEach(cloud => {
-      cloud.classList.add('rainy');
-    });
+    // Sembunyikan matahari saat hujan
+    sun.style.opacity = 0;
+
+    // Tambahkan kelas cloud-dark untuk menggelapkan awan
+    cloudBack.classList.add("cloud-dark");
+    cloudFront.classList.add("cloud-dark");
+
+  } else {
+    // Jika tidak hujan, tampilkan matahari seperti biasa
+    sun.style.opacity = 1;
+
+    // Hapus kelas cloud-dark agar awan kembali terang
+    cloudBack.classList.remove("cloud-dark");
+    cloudFront.classList.remove("cloud-dark");
   }
 }
+
 
 
 function initAllEffects() {
