@@ -162,12 +162,17 @@ const audio = document.getElementById("bgAudio");
   playBtn.addEventListener("click", () => {
     audio.play()
       .then(() => {
-        notif.style.display = "none"; // Sembunyikan notif setelah klik
+        notif.style.display = "none";
       })
-      .catch(err => {
+      .catch(() => {
         notif.innerHTML = "⚠️ Tidak bisa memutar musik. Silakan izinkan audio di browser.";
         setTimeout(() => notif.style.display = "none", 3000);
       });
+  });
+
+  // Tampilkan saat halaman siap
+  window.addEventListener("DOMContentLoaded", () => {
+    notif.style.display = "flex";
   });
 
   // Tampilkan notifikasi secara otomatis saat halaman load
