@@ -111,6 +111,48 @@ body, html {
   }
 }
 
+/* Sayap mengepak */
+.wing {
+  transform-origin: center;
+  animation: flap 1s ease-in-out infinite;
+}
+
+.left-wing {
+  transform-origin: 35px 55px;
+}
+
+.right-wing {
+  transform-origin: 45px 55px;
+}
+
+/* Kepala sedikit bergoyang */
+.bird-head {
+  animation: nod 2s ease-in-out infinite;
+  transform-origin: 66px 48px;
+}
+
+/* Ekor bergerak */
+.bird-tail {
+  animation: tail-wiggle 2s ease-in-out infinite;
+  transform-origin: 32px 60px;
+}
+
+/* Keyframes */
+@keyframes flap {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+@keyframes nod {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1px); }
+}
+
+@keyframes tail-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
 .rain-drop {
   position: absolute;
   width: 2px;
