@@ -95,7 +95,7 @@ body, html {
   100% { opacity: 1; }
 }
 
-.bird-svg {
+.bird {
   position: absolute;
   animation-name: flyBird;
   animation-timing-function: linear;
