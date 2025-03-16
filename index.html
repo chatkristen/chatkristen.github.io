@@ -31,37 +31,7 @@
     <!-- Efek Hujan -->
     <div class="rain" id="rain"></div>
   </div>
-
-  <!-- 🐦 Template SVG Burung (Hidden) -->
-  <div class="bird" id="birdTemplate" style="display: none;">
-    <svg viewBox="0 0 100 100" width="60" height="60">
-      <!-- Badan burung -->
-      <ellipse cx="50" cy="55" rx="18" ry="12" fill="#333" />
-
-      <!-- Kepala burung -->
-      <circle cx="66" cy="48" r="7" fill="#333" />
-      <circle cx="68" cy="46" r="2" fill="white" />
-
-      <!-- Paruh -->
-      <polygon points="72,48 78,50 72,52" fill="#f4a261" />
-
-      <!-- Sayap kiri -->
-      <path d="M35 55 Q20 40 30 65" fill="#444">
-        <animate attributeName="d" dur="1s" repeatCount="indefinite"
-          values="M35 55 Q20 40 30 65; M35 55 Q25 35 32 60; M35 55 Q20 40 30 65" />
-      </path>
-
-      <!-- Sayap kanan -->
-      <path d="M45 55 Q60 40 50 65" fill="#444">
-        <animate attributeName="d" dur="1s" repeatCount="indefinite"
-          values="M45 55 Q60 40 50 65; M45 55 Q55 35 52 60; M45 55 Q60 40 50 65" />
-      </path>
-
-      <!-- Ekor -->
-      <polygon points="32,58 26,60 32,62" fill="#444" />
-    </svg>
-  </div>
-
+  
   <!-- 💬 Kartu Quote Sosial Media -->
   <div class="quote-card" id="quoteCard">
     <div class="quote-profile">
@@ -87,4 +57,28 @@
   <!-- 📜 Script Utama -->
   <script src="/assets/js/script.js"></script>
 </body>
+  <!-- ✅ Definisi Symbol Burung untuk digunakan dengan <use> -->
+<svg style="display: none;">
+  <symbol id="birdSymbol" viewBox="0 0 100 100">
+    <!-- Badan burung -->
+    <ellipse cx="50" cy="55" rx="18" ry="12" fill="#333" />
+    <!-- Kepala burung -->
+    <circle cx="66" cy="48" r="7" fill="#333" />
+    <circle cx="68" cy="46" r="2" fill="white" />
+    <!-- Paruh -->
+    <polygon points="72,48 78,50 72,52" fill="#f4a261" />
+    <!-- Sayap kiri -->
+    <path d="M35 55 Q20 40 30 65" fill="#444">
+      <animate attributeName="d" dur="1s" repeatCount="indefinite"
+        values="M35 55 Q20 40 30 65; M35 55 Q25 35 32 60; M35 55 Q20 40 30 65" />
+    </path>
+    <!-- Sayap kanan -->
+    <path d="M45 55 Q60 40 50 65" fill="#444">
+      <animate attributeName="d" dur="1s" repeatCount="indefinite"
+        values="M45 55 Q60 40 50 65; M45 55 Q55 35 52 60; M45 55 Q60 40 50 65" />
+    </path>
+    <!-- Ekor -->
+    <polygon points="32,58 26,60 32,62" fill="#444" />
+  </symbol>
+</svg>
 </html>
