@@ -10,26 +10,28 @@
     <div class="sun" id="sun"></div>
     <div class="moon" id="moon"></div>
     <div class="stars" id="stars"></div>
+    <div id="birds"></div>
     <div class="clouds-back" id="cloudsBack"></div>
     <div class="clouds-front" id="cloudsFront"></div>
     <div class="rain" id="rain"></div>
 
-    <div class="bird" id="bird">
-      <svg viewBox="0 0 100 100" width="60" height="60">
-        <ellipse cx="50" cy="50" rx="20" ry="10" fill="#333" />
-        <circle cx="65" cy="45" r="6" fill="#333" />
-        <circle cx="67" cy="44" r="1.5" fill="white" />
-        <path d="M30 50 Q20 30 40 40" fill="#555">
-          <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
-            values="M30 50 Q20 30 40 40; M30 50 Q25 25 40 35; M30 50 Q20 30 40 40" />
-        </path>
-        <path d="M70 50 Q80 30 60 40" fill="#555">
-          <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
-            values="M70 50 Q80 30 60 40; M70 50 Q75 25 60 35; M70 50 Q80 30 60 40" />
-        </path>
-      </svg>
-    </div>
+    <div id="birdTemplate" style="display: none;">
+  <div class="bird">
+    <svg viewBox="0 0 100 100" width="60" height="60">
+      <ellipse cx="50" cy="50" rx="20" ry="10" fill="#333" />
+      <circle cx="65" cy="45" r="6" fill="#333" />
+      <circle cx="67" cy="44" r="1.5" fill="white" />
+      <path d="M30 50 Q20 30 40 40" fill="#555">
+        <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
+          values="M30 50 Q20 30 40 40; M30 50 Q25 25 40 35; M30 50 Q20 30 40 40" />
+      </path>
+      <path d="M70 50 Q80 30 60 40" fill="#555">
+        <animate attributeName="d" dur="0.6s" repeatCount="indefinite"
+          values="M70 50 Q80 30 60 40; M70 50 Q75 25 60 35; M70 50 Q80 30 60 40" />
+      </path>
+    </svg>
   </div>
+</div>
 
   <div class="quote-card" id="quoteCard">
     <div class="quote-header">
