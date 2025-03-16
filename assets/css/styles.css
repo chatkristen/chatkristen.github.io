@@ -186,6 +186,13 @@ body, html {
   text-align: left;
 }
 
+.quote-dark {
+  color: #fff;
+}
+.quote-light {
+  color: #222;
+}
+
 .profile-img {
   width: 48px;
   height: 48px;
