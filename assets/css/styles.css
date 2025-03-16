@@ -36,7 +36,8 @@ body, html {
 }
 
 .cloud {
-  width: 350px; height: 120px;
+  width: 150px; 
+  height: 45px;
   background: #f2f9fe;  
   background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.05, #f2f9fe), to(#d6f0fd));
   background: -webkit-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
@@ -57,26 +58,26 @@ body, html {
 }
 
 .cloud::before {
-  width: 180px;
-  height: 180px;
-  top: -90px;
-  right: 50px;
+  width: 75px;
+  height: 60px;
+  top: -15px;
+  right: 15px;
   border-radius: 200px;
 }
 
 .cloud::after {
- width: 100px;
-  height: 100px;
-  top: -50px;
-  left: 50px;
+ width: 90px;
+  height: 55px;
+  top: -8px;
+  left: 60px;
   border-radius: 100px;
 }
 
 .shadow {
-  width: 300px;
+  width: 200px;
   position: absolute;
-  bottom: -10px;
-  left: 20px;  
+  bottom: -8px;
+  left: 15px;  
   background: #000;
   z-index: -1;
   -webkit-box-shadow: 0 0 25px 8px rgba(0,0,0,0.4);
