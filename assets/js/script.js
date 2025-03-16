@@ -29,7 +29,7 @@ function tampilkanQuote() {
 
     setTimeout(() => {
         quoteElement.innerText = quotes[randomIndex].text;
-        hashtagsElement.innerText = quotes[randomIndex].tags;
+        hashtagsElement.innerText = quotes[randomIndex].text;
 
         // Warna gradient smooth
         container.style.transition = "background 2s ease-in-out";
