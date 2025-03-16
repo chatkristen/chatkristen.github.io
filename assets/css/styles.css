@@ -166,45 +166,58 @@ body, html {
   background: #cccccc;
 }
 
-.quote-card {
+.quote-card-glass {
   position: absolute;
-  top: 20px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 500px;
-  padding: 20px;
-  border-radius: 16px;
+  transform: translate(-50%, -50%);
+  width: 360px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   color: #fff;
+  text-align: center;
   z-index: 5;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: sans-serif;
+}
+
+.quote-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
   text-align: left;
 }
 
-.quote-header {
+.profile-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.quote-name {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 10px;
-  color: #f1f1f1;
 }
 
-.social-handle {
+.quote-handle {
   font-size: 14px;
-  color: #ddd;
+  opacity: 0.8;
 }
 
-.quote-content {
-  font-size: 18px;
-  line-height: 1.4;
-  margin-bottom: 12px;
-  color: #ffffff;
+.quote-text {
+  font-size: 16px;
+  margin: 12px 0;
+  line-height: 1.5;
 }
 
 .quote-tags {
-  font-size: 14px;
-  color: #ccc;
+  font-size: 13px;
+  color: #ddd;
 }
+
