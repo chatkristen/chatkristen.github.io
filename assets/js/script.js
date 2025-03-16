@@ -1,3 +1,4 @@
+// ======== 🌤️ Sky & Time Effects =========
 function updateSkyByTime() {
   const now = new Date();
   const hour = now.getHours();
@@ -5,11 +6,9 @@ function updateSkyByTime() {
   const sun = document.getElementById("sun");
   const moon = document.getElementById("moon");
   const stars = document.getElementById("stars");
-  const audio = document.getElementById("bgAudio");
 
-  // Ubah langit berdasarkan waktu
   if (hour >= 5 && hour < 7) {
-    // Subuh – biru muda
+    // Subuh
     sky.style.background = "linear-gradient(#5a88d2, #fff)";
     sun.style.bottom = "20%";
     sun.style.opacity = 0.5;
@@ -45,14 +44,14 @@ function updateSkyByTime() {
 
 function setAudio(src) {
   const audio = document.getElementById("bgAudio");
-  if (audio.src.indexOf(src) === -1) {
+  if (!audio.src.includes(src)) {
     audio.pause();
     audio.src = src;
     audio.load();
-    audio.play();
   }
 }
 
+// ========= ✨ Star Generator =========
 function createStars() {
   const stars = document.getElementById("stars");
   stars.innerHTML = '';
@@ -65,6 +64,7 @@ function createStars() {
   }
 }
 
+// ========= ☁️ Cloud Generator =========
 function createClouds(containerId, count, speed) {
   const container = document.getElementById(containerId);
   container.innerHTML = '';
@@ -77,47 +77,36 @@ function createClouds(containerId, count, speed) {
   }
 }
 
+// ========= 🐦 Bird Generator =========
 function createBirds() {
   const birdsContainer = document.getElementById("birds");
   birdsContainer.innerHTML = '';
-
   const hour = new Date().getHours();
   if (hour >= 6 && hour < 10) {
     const birdTemplate = document.getElementById("birdTemplate");
-
     for (let i = 0; i < 4; i++) {
-      const birdClone = birdTemplate.cloneNode(true);
-      birdClone.removeAttribute("id");
-      birdClone.style.display = "block";
-      birdClone.classList.add("bird-svg");
-
-      // Posisi awal random
-      birdClone.style.top = `${Math.random() * 60}%`;
-      birdClone.style.left = `-${Math.random() * 20 + 10}px`;
-
-      // Durasi animasi acak agar terkesan natural
-      const duration = (8 + Math.random() * 5).toFixed(2);
-      birdClone.style.animationDuration = `${duration}s`;
-
-      // Delay agar tidak seragam
-      birdClone.style.animationDelay = `${Math.random() * 5}s`;
-
-      birdsContainer.appendChild(birdClone);
+      const bird = birdTemplate.cloneNode(true);
+      bird.removeAttribute("id");
+      bird.style.display = "block";
+      bird.classList.add("bird-svg");
+      bird.style.top = `${Math.random() * 60}%`;
+      bird.style.left = `-${Math.random() * 20 + 10}px`;
+      bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
+      bird.style.animationDelay = `${Math.random() * 5}s`;
+      birdsContainer.appendChild(bird);
     }
   }
 }
 
+// ========= 🌧️ Rain Effect =========
 function createRainEffect() {
   const rainContainer = document.getElementById("rain");
   const sun = document.getElementById("sun");
   const cloudBack = document.getElementById("cloudsBack");
   const cloudFront = document.getElementById("cloudsFront");
-
   rainContainer.innerHTML = '';
-  const shouldRain = Math.random() < 0.3; // 30% kemungkinan hujan
-
+  const shouldRain = Math.random() < 0.3;
   if (shouldRain) {
-    // Tambahkan efek hujan
     for (let i = 0; i < 80; i++) {
       const drop = document.createElement("div");
       drop.classList.add("rain-drop");
@@ -126,26 +115,17 @@ function createRainEffect() {
       drop.style.animationDelay = `${Math.random()}s`;
       rainContainer.appendChild(drop);
     }
-
-    // Sembunyikan matahari saat hujan
     sun.style.opacity = 0;
-
-    // Tambahkan kelas cloud-dark untuk menggelapkan awan
     cloudBack.classList.add("cloud-dark");
     cloudFront.classList.add("cloud-dark");
-
   } else {
-    // Jika tidak hujan, tampilkan matahari seperti biasa
     sun.style.opacity = 1;
-
-    // Hapus kelas cloud-dark agar awan kembali terang
     cloudBack.classList.remove("cloud-dark");
     cloudFront.classList.remove("cloud-dark");
   }
 }
 
-
-
+// ========= 🚀 Initialize All Effects =========
 function initAllEffects() {
   updateSkyByTime();
   createStars();
@@ -155,60 +135,58 @@ function initAllEffects() {
   createRainEffect();
 }
 
+// ========= 🎵 Audio Control Button =========
 const audio = document.getElementById("bgAudio");
-  const playBtn = document.getElementById("playAudioBtn");
-  const notif = document.getElementById("audioNotif");
+const playBtn = document.getElementById("playAudioBtn");
+playBtn.addEventListener("click", () => {
+  try {
+    audio.muted = false;
+    audio.play().then(() => {
+      document.getElementById("audioNotif").style.display = "none";
+    }).catch((err) => {
+      console.warn("Audio gagal diputar:", err);
+    });
+  } catch (e) {
+    console.warn("Error saat mencoba memutar audio:", e);
+  }
+});
 
-  playBtn.addEventListener("click", () => {
-    audio.play()
-      .then(() => {
-        notif.style.display = "none";
-      })
-      .catch(() => {
-        notif.innerHTML = "⚠️ Tidak bisa memutar musik. Silakan izinkan audio di browser.";
-        setTimeout(() => notif.style.display = "none", 3000);
-      });
-  });
-
-  // Tampilkan saat halaman siap
-  window.addEventListener("DOMContentLoaded", () => {
-    notif.style.display = "flex";
-  });
-
+// ========= 💬 Quote Auto-Display =========
 let quotes = [];
-  let currentQuoteIndex = 0;
-  let quoteTimer;
+let currentQuoteIndex = 0;
+let quoteTimer;
 
-  async function loadQuotes() {
+async function loadQuotes() {
+  try {
     const response = await fetch('/assets/data/quotes.json');
     quotes = await response.json();
     showQuote();
+  } catch (error) {
+    console.error("Gagal memuat kutipan:", error);
   }
+}
 
-  function showQuote() {
-    const quote = quotes[currentQuoteIndex];
+function showQuote() {
+  const quote = quotes[currentQuoteIndex];
+  document.getElementById('quoteText').innerHTML = quote.text;
+  document.getElementById('quoteTags').innerText = quote.tags;
+  const quoteLength = quote.text.length;
+  const baseTime = 2000;
+  const perCharTime = 60;
+  let displayDuration = baseTime + quoteLength * perCharTime;
+  const maxDuration = 15000;
+  if (displayDuration > maxDuration) displayDuration = maxDuration;
+  clearTimeout(quoteTimer);
+  quoteTimer = setTimeout(showNextQuote, displayDuration);
+}
 
-    // Tampilkan teks dan tag
-    document.getElementById('quoteText').innerHTML = quote.text;
-    document.getElementById('quoteTags').innerText = quote.tags;
+function showNextQuote() {
+  currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+  showQuote();
+}
 
-    // Hitung durasi berdasarkan panjang teks
-    const quoteLength = quote.text.length;
-    const baseTime = 2000; // waktu dasar 2 detik
-    const perCharTime = 60; // 60ms per karakter
-    let displayDuration = baseTime + quoteLength * perCharTime;
-
-    // Batas maksimal jika diperlukan
-    const maxDuration = 15000;
-    if (displayDuration > maxDuration) displayDuration = maxDuration;
-
-    clearTimeout(quoteTimer);
-    quoteTimer = setTimeout(showNextQuote, displayDuration);
-  }
-
-  function showNextQuote() {
-    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-    showQuote();
-  }
-
-  window.onload = loadQuotes;
+// ========= 📦 Init on Load =========
+window.onload = () => {
+  loadQuotes();
+  initAllEffects();
+};
