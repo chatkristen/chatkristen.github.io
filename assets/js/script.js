@@ -98,6 +98,11 @@ function createRainEffect() {
   rainContainer.innerHTML = '';
   const shouldRain = Math.random() < 0.3; // 30% kemungkinan hujan
 
+  // Hapus class 'rainy' dari semua awan dulu
+  document.querySelectorAll('.cloud').forEach(cloud => {
+    cloud.classList.remove('rainy');
+  });
+
   if (shouldRain) {
     for (let i = 0; i < 80; i++) {
       const drop = document.createElement("div");
@@ -107,8 +112,14 @@ function createRainEffect() {
       drop.style.animationDelay = `${Math.random()}s`;
       rainContainer.appendChild(drop);
     }
+
+    // Tambahkan class 'rainy' ke semua awan saat hujan
+    document.querySelectorAll('.cloud').forEach(cloud => {
+      cloud.classList.add('rainy');
+    });
   }
 }
+
 
 function initAllEffects() {
   updateSkyByTime();
