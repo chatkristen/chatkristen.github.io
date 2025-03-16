@@ -78,6 +78,7 @@ function createClouds(containerId, count, speed) {
 }
 
 // ========= 🐦 Bird Generator =========
+const birdGIFPath = "/assets/gif/bird.gif";
 function createBirds() {
       const birdsContainer = document.getElementById("birds");
       birdsContainer.innerHTML = '';
@@ -87,20 +88,19 @@ function createBirds() {
         const birdTemplate = document.getElementById("birdTemplate");
 
         for (let i = 0; i < 4; i++) {
-          const bird = birdTemplate.cloneNode(true);
-          bird.removeAttribute("id");
-          bird.style.display = "block";
-          bird.classList.add("bird-svg");
-          bird.style.top = `${Math.random() * 60}%`;
-          bird.style.left = `-${Math.random() * 20 + 10}px`;
-          bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
-          bird.style.animationDelay = `${Math.random() * 5}s`;
+          const bird = document.createElement("img");
+        bird.src = birdGIFPath;
+        bird.className = "bird";
 
-          bird.querySelectorAll('.wing, .bird-head, .bird-tail').forEach(el => {
-            el.style.animationDelay = `${Math.random().toFixed(2)}s`;
-          });
+        const randomScale = 0.5 + Math.random() * 1.2; // Skala antara 0.5 sampai 1.7
+        bird.style.width = `${80 * randomScale}px`;
 
-          birdsContainer.appendChild(bird);
+        bird.style.top = `${Math.random() * 60}%`;
+        bird.style.left = `-${Math.random() * 20 + 10}px`;
+        bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
+        bird.style.animationDelay = `${Math.random() * 5}s`;
+
+        birdsContainer.appendChild(bird);
         }
       }
     }
