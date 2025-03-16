@@ -109,6 +109,7 @@ function createClouds(containerId, count, speed) {
     cloud.classList.add("cloud");
     cloud.style.top = `${Math.random() * 70}%`;
     cloud.style.animationDuration = `${speed + Math.random() * 5}s`;
+    cloud.innerHTML = '<span class='shadow'></span>';
     container.appendChild(cloud);
   }
 }
