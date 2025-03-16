@@ -46,7 +46,7 @@ body, html {
   background: linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
   
   border-radius: 100px;
-  position: relative;
+  position: absolute;
   margin: 180px auto 100px;
 }
 
