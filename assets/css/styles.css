@@ -221,3 +221,17 @@ body, html {
   color: #ddd;
 }
 
+.play-audio-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px 20px;
+  border: none;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
