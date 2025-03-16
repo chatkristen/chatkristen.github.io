@@ -175,11 +175,6 @@ const audio = document.getElementById("bgAudio");
     notif.style.display = "flex";
   });
 
-  // Tampilkan notifikasi secara otomatis saat halaman load
-  window.addEventListener("DOMContentLoaded", () => {
-    notif.style.display = "flex";
-  });
-
 let quotes = [];
   let currentQuoteIndex = 0;
   let quoteTimer;
