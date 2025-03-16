@@ -9,7 +9,10 @@ function updateSkyByTime() {
 
   const quoteText = document.getElementById("quoteText");
   const quoteTags = document.getElementById("quoteTags");
-
+  
+  const quoteName = document.getElementById("quoteName");
+  const quoteHandle = document.getElementById("quoteHandle");
+  
   const cloudBack = document.getElementById("cloudsBack");
   const cloudFront = document.getElementById("cloudsFront");
 
@@ -22,6 +25,8 @@ function updateSkyByTime() {
     stars.style.display = "none";
     quoteText.style.color = "#333";
     quoteTags.style.color = "#333";
+    quoteName.style.color = "#333";
+    quoteHandle.style.color = "#333";
     cloudBack.style.opacity = "0.8";
     cloudFront.style.opacity = "0.8";
     setAudio("/assets/audio/morning.mp3");
@@ -35,6 +40,8 @@ function updateSkyByTime() {
     stars.style.display = "none";
     quoteText.style.color = "#222";
     quoteTags.style.color = "#222";
+    quoteName.style.color = "#222";
+    quoteHandle.style.color = "#222";
     cloudBack.style.opacity = "1";
     cloudFront.style.opacity = "1";
     setAudio("/assets/audio/day.mp3");
@@ -48,6 +55,8 @@ function updateSkyByTime() {
     stars.style.display = "none";
     quoteText.style.color = "#fff";
     quoteTags.style.color = "#fff";
+    quoteName.style.color = "#fff";
+    quoteHandle.style.color = "#fff";
     cloudBack.style.opacity = "0.6"; // lebih tipis
     cloudFront.style.opacity = "0.6";
     setAudio("/assets/audio/evening.mp3");
@@ -61,6 +70,8 @@ function updateSkyByTime() {
     stars.style.display = "block";
     quoteText.style.color = "#fff";
     quoteTags.style.color = "#fff";
+    quoteName.style.color = "#fff";
+    quoteHandle.style.color = "#fff";
     cloudBack.style.opacity = "0.3"; // makin malam makin tipis
     cloudFront.style.opacity = "0.3";
     setAudio("/assets/audio/night.mp3");
