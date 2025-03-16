@@ -79,24 +79,31 @@ function createClouds(containerId, count, speed) {
 
 // ========= 🐦 Bird Generator =========
 function createBirds() {
-  const birdsContainer = document.getElementById("birds");
-  birdsContainer.innerHTML = '';
-  const hour = new Date().getHours();
-  if (hour >= 6 && hour < 10) {
-    const birdTemplate = document.getElementById("birdTemplate");
-    for (let i = 0; i < 4; i++) {
-      const bird = birdTemplate.cloneNode(true);
-      bird.removeAttribute("id");
-      bird.style.display = "block";
-      bird.classList.add("bird-svg");
-      bird.style.top = `${Math.random() * 60}%`;
-      bird.style.left = `-${Math.random() * 20 + 10}px`;
-      bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
-      bird.style.animationDelay = `${Math.random() * 5}s`;
-      birdsContainer.appendChild(bird);
+      const birdsContainer = document.getElementById("birds");
+      birdsContainer.innerHTML = '';
+
+      const hour = new Date().getHours();
+      if (hour >= 6 && hour < 10) {
+        const birdTemplate = document.getElementById("birdTemplate");
+
+        for (let i = 0; i < 4; i++) {
+          const bird = birdTemplate.cloneNode(true);
+          bird.removeAttribute("id");
+          bird.style.display = "block";
+          bird.classList.add("bird-svg");
+          bird.style.top = `${Math.random() * 60}%`;
+          bird.style.left = `-${Math.random() * 20 + 10}px`;
+          bird.style.animationDuration = `${(8 + Math.random() * 5).toFixed(2)}s`;
+          bird.style.animationDelay = `${Math.random() * 5}s`;
+
+          bird.querySelectorAll('.wing, .bird-head, .bird-tail').forEach(el => {
+            el.style.animationDelay = `${Math.random().toFixed(2)}s`;
+          });
+
+          birdsContainer.appendChild(bird);
+        }
+      }
     }
-  }
-}
 
 // ========= 🌧️ Rain Effect =========
 function createRainEffect() {
