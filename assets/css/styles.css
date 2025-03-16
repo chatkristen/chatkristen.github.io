@@ -1,3 +1,6 @@
+body::-webkit-scrollbar {
+  display: none;
+}
 body {
   font-family: "Arial", sans-serif;
   text-align: center;
@@ -8,6 +11,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }
 header {
   padding: 30px 0;
