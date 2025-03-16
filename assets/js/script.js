@@ -150,3 +150,41 @@ playBtn.addEventListener("click", () => {
   audio.play();
   playBtn.style.display = "none"; // sembunyikan tombol setelah diklik
 });
+
+let quotes = [];
+  let currentQuoteIndex = 0;
+  let quoteTimer;
+
+  async function loadQuotes() {
+    const response = await fetch('/assets/data/quotes.json');
+    quotes = await response.json();
+    showQuote();
+  }
+
+  function showQuote() {
+    const quote = quotes[currentQuoteIndex];
+
+    // Tampilkan teks dan tag
+    document.getElementById('quoteText').innerHTML = quote.text;
+    document.getElementById('quoteTags').innerText = quote.tags;
+
+    // Hitung durasi berdasarkan panjang teks
+    const quoteLength = quote.text.length;
+    const baseTime = 2000; // waktu dasar 2 detik
+    const perCharTime = 60; // 60ms per karakter
+    let displayDuration = baseTime + quoteLength * perCharTime;
+
+    // Batas maksimal jika diperlukan
+    const maxDuration = 15000;
+    if (displayDuration > maxDuration) displayDuration = maxDuration;
+
+    clearTimeout(quoteTimer);
+    quoteTimer = setTimeout(showNextQuote, displayDuration);
+  }
+
+  function showNextQuote() {
+    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    showQuote();
+  }
+
+  window.onload = loadQuotes;
