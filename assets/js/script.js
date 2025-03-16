@@ -155,14 +155,18 @@ function initAllEffects() {
   createRainEffect();
 }
 
-document.addEventListener("DOMContentLoaded", initAllEffects);
-
 const audio = document.getElementById("bgAudio");
 const playBtn = document.getElementById("playAudioBtn");
 
 playBtn.addEventListener("click", () => {
-  audio.play();
-  playBtn.style.display = "none"; // sembunyikan tombol setelah diklik
+  audio.play()
+    .then(() => {
+      playBtn.style.display = "none"; // sembunyikan tombol saat berhasil
+    })
+    .catch(err => {
+      console.error("Audio autoplay ditolak:", err);
+      alert("Klik sekali lagi jika audio belum diputar.");
+    });
 });
 
 let quotes = [];
