@@ -95,58 +95,65 @@ body, html {
   100% { opacity: 1; }
 }
 
-.bird-svg {
-  position: absolute;
-  z-index: 10;
-  animation: fly linear infinite;
-}
+#birds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      pointer-events: none;
+    }
 
-@keyframes fly {
-  from { transform: translateX(0); }
-  to { transform: translateX(120vw); }
-}
+    .bird-svg {
+      position: absolute;
+      z-index: 10;
+      animation: fly linear infinite;
+    }
 
-/* Sayap mengepak */
-.wing {
-  transform-origin: center;
-  animation: flap 1s ease-in-out infinite;
-}
+    @keyframes fly {
+      from { transform: translateX(0); }
+      to { transform: translateX(120vw); }
+    }
 
-.left-wing {
-  transform-origin: 35px 55px;
-}
+    .wing, .bird-head, .bird-tail {
+      transform-box: fill-box;
+    }
 
-.right-wing {
-  transform-origin: 45px 55px;
-}
+    .left-wing {
+      transform-origin: 35px 55px;
+      animation: flap 1s ease-in-out infinite;
+    }
 
-/* Kepala sedikit bergoyang */
-.bird-head {
-  animation: nod 2s ease-in-out infinite;
-  transform-origin: 66px 48px;
-}
+    .right-wing {
+      transform-origin: 45px 55px;
+      animation: flap 1s ease-in-out infinite;
+    }
 
-/* Ekor bergerak */
-.bird-tail {
-  animation: tail-wiggle 2s ease-in-out infinite;
-  transform-origin: 32px 60px;
-}
+    .bird-head {
+      transform-origin: 66px 48px;
+      animation: nod 2s ease-in-out infinite;
+    }
 
-/* Keyframes */
-@keyframes flap {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-10deg); }
-}
+    .bird-tail {
+      transform-origin: 32px 60px;
+      animation: tail-wiggle 2s ease-in-out infinite;
+    }
 
-@keyframes nod {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(1px); }
-}
+    @keyframes flap {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-20deg); }
+    }
 
-@keyframes tail-wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(5deg); }
-}
+    @keyframes nod {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(2px); }
+    }
+
+    @keyframes tail-wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(10deg); }
+    }
 
 .rain-drop {
   position: absolute;
