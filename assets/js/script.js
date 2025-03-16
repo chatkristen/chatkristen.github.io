@@ -84,7 +84,7 @@ function createBirds() {
       birdsContainer.innerHTML = '';
 
       const hour = new Date().getHours();
-      if (hour >= 6 && hour < 10) {
+      if (hour >= 6 && hour < 15) {
         const birdTemplate = document.getElementById("birdTemplate");
 
         for (let i = 0; i < 4; i++) {
