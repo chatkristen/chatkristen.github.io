@@ -154,7 +154,7 @@
       quoteBox.innerHTML = quotes[index];
       body.style.background = backgrounds[index % backgrounds.length];
 
-      const duration = 7000 + quotes[index].length * 35;
+      const duration = 6000 + quotes[index].length * 30;
       index = (index + 1) % quotes.length;
       setTimeout(showQuote, duration);
     }
