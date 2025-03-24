@@ -6,27 +6,38 @@
   <title>Cerita Iman Interaktif</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
       font-family: 'Playfair Display', serif;
       display: flex;
       flex-direction: column;
+    }
+
+    body {
+      transition: background 1s ease;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 40px 20px 80px;
-      transition: background 1s ease;
+      padding: 20px;
     }
 
     .quote-box {
       background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       border-radius: 18px;
       padding: 30px 40px;
-      max-width: 700px;
+      max-width: 800px;
       color: #fff;
       font-size: 1.3rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
       line-height: 1.8;
       text-align: justify;
       position: relative;
@@ -82,8 +93,7 @@
     }
 
     footer {
-      margin-top: auto;
-      padding: 20px 0;
+      padding: 15px 0;
       width: 100%;
       text-align: center;
       color: #fff;
@@ -102,7 +112,9 @@
 </head>
 <body id="body">
 
-  <div class="quote-box fade-in" id="quoteBox"></div>
+  <div class="container">
+    <div class="quote-box fade-in" id="quoteBox"></div>
+  </div>
 
   <footer>&copy; chatkristen | Cerita Iman - Diberkati untuk Memberkati</footer>
 
