@@ -3,59 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat Kristen</title>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <title>Cerita Iman Interaktif</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      transition: background 1s ease;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 30px 40px;
+      max-width: 700px;
+      color: #fff;
+      font-size: 1.3rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      line-height: 1.8;
+      text-align: justify;
+      position: relative;
+      transition: all 0.6s ease;
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: pointer;
+      border-bottom: 1px dotted #fff;
+      font-weight: bold;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: max-content;
+      max-width: 300px;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px 15px;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      font-style: italic;
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .link-akhir {
+      color: #ffd;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: 'Roboto', sans-serif;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .quote-box {
+        font-size: 1rem;
+        padding: 25px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body id="body">
 
-  <!-- 🌌 Latar Langit & Elemen Cuaca -->
-  <div class="sky" id="sky">
-    <!-- Matahari -->
-    <div class="sun" id="sun"></div>
+  <div class="quote-box fade-in" id="quoteBox"></div>
 
-    <!-- Bulan -->
-    <div class="moon" id="moon"></div>
+  <footer>&copy; chatkristen | Cerita Iman - Diberkati untuk Memberkati</footer>
 
-    <!-- Bintang-bintang -->
-    <div class="stars" id="stars"></div>
+  <script>
+    const quotes = [
+      `Kadang hidup terasa sepi, seperti berjalan dalam bayang-bayang tanpa cahaya. Namun dalam keheningan itu, suara-Nya memanggil, mengundang kita untuk <span class="tooltip">beristirahat<span class="tooltip-text">Matius 11:28 — Datanglah kepada-Ku, semua yang letih lesu dan berbeban berat, Aku akan memberi kelegaan.</span></span> di hadirat-Nya.`,
+      `Saat jalan terasa berat dan langkah tak pasti, Tuhan menguatkan hati kita dengan <span class="tooltip">penghiburan<span class="tooltip-text">Mazmur 94:19 — Apabila bertambah banyak pikiran dalam batinku, penghiburan-Mu menyenangkan jiwaku.</span></span>. Ia mengerti luka yang tersembunyi dan air mata yang tak terlihat.`,
+      `Dalam badai kehidupan, kita tetap disertai. Sebab Dia telah berkata, "<span class="tooltip">Aku menyertai engkau<span class="tooltip-text">Yesaya 41:10 — Jangan takut, sebab Aku menyertai engkau, jangan bimbang, sebab Aku ini Allahmu.</span></span>," dan janji-Nya tak pernah gagal.`,
+      `Terkadang, harapan tampak samar. Namun Tuhan memberikan kita <span class="tooltip">masa depan<span class="tooltip-text">Yeremia 29:11 — Sebab Aku mengetahui rancangan-rancangan mengenai kamu... rancangan damai sejahtera untuk memberikan kepadamu hari depan yang penuh harapan.</span></span>.`,
+      `Ketika dunia memalingkan wajahnya, Tuhan tetap memeluk kita. Dalam pelukan kasih-Nya, kita kembali merasakan <span class="tooltip">kedamaian<span class="tooltip-text">Yohanes 14:27 — Damai sejahtera Kutinggalkan bagimu, damai sejahtera-Ku Kuberikan kepadamu.</span></span> yang tidak tergantikan.`,
+      `Dalam setiap langkah, Tuhan menuntun kita. <span class="tooltip">Firman-Nya<span class="tooltip-text">Mazmur 119:105 — Firman-Mu adalah pelita bagi kakiku dan terang bagi jalanku.</span></span> menjadi cahaya bagi jalan hidup yang penuh misteri.`,
+      `Dan di akhir hari, kita menyadari bahwa kasih-Nya tak pernah berubah. Dia tetap setia, bahkan ketika kita lemah. Ia adalah <span class="tooltip">Gembala yang baik<span class="tooltip-text">Mazmur 23:1 — Tuhan adalah gembalaku, takkan kekurangan aku.</span></span> yang menjaga jiwa kita.`,
+      `Jika hari ini hatimu mencari arah, ketahuilah: ada harapan, ada kasih, dan ada terang yang selalu bersinar dari salib Kristus.`,
+      `Temukan lebih banyak penguatan rohani, inspirasi harian, dan cerita iman lainnya di <a href="https://www.chatkristen.com" target="_blank" class="link-akhir">www.chatkristen.com</a>.`
+    ];
 
-    <!-- Burung Terbang -->
-    <div id="birds"></div>
+    const backgrounds = [
+      "linear-gradient(120deg, #2c3e50, #3498db)",
+      "linear-gradient(120deg, #8e44ad, #3498db)",
+      "linear-gradient(120deg, #16a085, #f39c12)",
+      "linear-gradient(120deg, #34495e, #e67e22)",
+      "linear-gradient(120deg, #1e3c72, #2a5298)",
+      "linear-gradient(120deg, #2980b9, #6dd5fa)",
+      "linear-gradient(120deg, #ff512f, #dd2476)",
+      "linear-gradient(120deg, #373b44, #4286f4)",
+      "linear-gradient(120deg, #141e30, #243b55)"
+    ];
 
-    <!-- Awan Belakang -->
-    <div class="clouds-back" id="cloudsBack"></div>
+    const quoteBox = document.getElementById('quoteBox');
+    const body = document.getElementById('body');
+    let index = 0;
 
-    <!-- Awan Depan -->
-    <div class="clouds-front" id="cloudsFront"></div>
+    function showQuote() {
+      quoteBox.classList.remove('fade-in');
+      void quoteBox.offsetWidth;
+      quoteBox.classList.add('fade-in');
+      quoteBox.innerHTML = quotes[index];
+      body.style.background = backgrounds[index % backgrounds.length];
 
-    <!-- Efek Hujan -->
-    <div class="rain" id="rain"></div>
-  </div>
-  
-  <!-- 💬 Kartu Quote Sosial Media -->
-  <div class="quote-card" id="quoteCard">
-    <div class="quote-profile">
-      <img src="/assets/img/profile.png" alt="Profile" class="profile-img">
-      <div>
-        <div class="quote-name" id="quoteName">Chat Kristen</div>
-        <div class="quote-handle" id="quoteHandle">@chatkristen</div>
-      </div>
-    </div>
-    <div class="quote-text" id="quoteText">Loading quote...</div>
-    <div class="quote-tags" id="quoteTags">#motivasi</div>
-  </div>
- 
-  <!-- 🔔 Notifikasi Audio / Toast Musik -->
-  <div id="audioNotif" class="audio-toast">
-    🎵 Ingin mendengarkan musik latar?
-    <button id="playAudioBtn" class="toast-play-btn">Putar Musik</button>
-  </div>
+      const duration = 7000 + quotes[index].length * 35;
+      index = (index + 1) % quotes.length;
+      setTimeout(showQuote, duration);
+    }
 
-  <!-- 🎵 Elemen Audio -->
-  <audio id="bgAudio" loop></audio>
+    showQuote();
+  </script>
 
-  <!-- 📜 Script Utama -->
-  <script src="/assets/js/script.js"></script>
-  
 </body>
 </html>
