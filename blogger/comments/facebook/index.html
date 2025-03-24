@@ -13,18 +13,6 @@
 </head>
 <body>
   <div id='root'></div>
-  <script>
-   // Kirim pesan ke parent
-   window.parent.postMessage({
-     source: 'iframe-facebook',
-     message: 'Halo dari iframe!',
-     extraData: 'data apapun yang mau kamu kirim'
-   }, '*');
-   window.addEventListener("message", function(event) {
-     if (event.origin === "https://cdn.chatkristen.com") {
-       console.log("Pesan dari parent:", event.data);
-     }
-   });
- </script>
+  <script>window.parent.postMessage({ action: 'something', data: 'hello from iframe' }, "https://chatkristen.com");</script>
 </body>
 </html>
