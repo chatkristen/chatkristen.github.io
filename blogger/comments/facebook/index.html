@@ -13,6 +13,6 @@
 </head>
 <body>
   <div id='root'></div>
-  <script>window.parent.postMessage({ action: 'something', data: 'hello from iframe' }, "https://www.chatkristen.com");</script>
+  <script>window.parent.postMessage({ action: 'notification', data: 'Iframe mengirimkan pesan ke parent.', '*'}, "https://www.chatkristen.com");</script>
 </body>
 </html>
