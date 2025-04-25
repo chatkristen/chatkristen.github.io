@@ -26,7 +26,7 @@
       align-items: center;
       background-color: #fff;
       border-bottom: 1px solid #ddd;
-      padding: 16px 20px;
+      padding: 12px 20px;
     }
     .logo-section {
       display: flex;
@@ -68,8 +68,25 @@
     .content p {
       line-height: 1.6;
       text-align: justify;
-      margin-bottom: 16px;
+      margin: 16px 0;
     }
+
+    .content p.salutation {
+      margin: 30px 0 20px;
+    }
+
+    .banner-image {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .cta-wrapper {
+      margin: 50px 0 20px;
+      text-align: center;
+    }
+
     .cta-button {
       display: inline-block;
       background-color: #3a7ca5;
@@ -78,8 +95,23 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      margin-top: 20px;
     }
+
+    .signature-wrapper {
+      margin: 40px 0 20px;
+      text-align: right;
+    }
+
+    .signature-content {
+      display: inline-block;
+      text-align: center;
+    }
+
+    .signature-content img {
+      display: block;
+      margin: 10px auto;
+    }
+
     .footer {
       background-color: #f0f0f0;
       text-align: center;
@@ -111,11 +143,13 @@
     </div>
 
     <div class="content">
+      <img src="https://cdn.chatkristen.com/assets/img/tumbnail.png" alt="Menopang Kesehatan Mental Generasi Muda" class="banner-image" />
+
       <p>Kepada Yth.<br/>
       <strong>T.H. Hari Sucahyo</strong><br/>
       di Tempat</p>
 
-      <p style="margin-top: 30px;">Salam sejahtera dalam kasih Kristus,</p>
+      <p class="salutation">Salam sejahtera dalam kasih Kristus,</p>
 
       <p>
         Dengan penuh sukacita dan rasa syukur, kami mengucapkan terima kasih yang sebesar-besarnya atas partisipasi dan kontribusi Anda dalam penulisan artikel di ChatKristen. Kehadiran tulisan-tulisan Anda telah menjadi berkat yang berarti bagi banyak pembaca dan telah memperkaya khazanah rohani dalam pelayanan digital kami.
@@ -130,12 +164,18 @@
         Sekali lagi, kami menyampaikan apresiasi yang tulus atas kerjasama dan dukungan Anda. Kami berharap kerja sama ini terus terjalin dalam kasih dan kesatuan di dalam Kristus.
       </p>
       <p>Tuhan memberkati pelayanan Anda.</p>
-      <p style="margin-top: 20px; text-align: center;">
+
+      <div class="cta-wrapper">
         <a href="https://www.chatkristen.com/2025/03/berbeda-dalam-tradisi-satu-dalam-iman.html" class="cta-button">Lihat Artikel Anda</a>
-      </p>
-      <p style="margin: 20px 0 20px; text-align: right;">Hormat kami,<br />
-        <img width="120" src="https://cdn.chatkristen.com/assets/img/signature.png" alt="Signature"><br />
-        <strong>Tim ChatKristen</strong></p>
+      </div>
+
+      <div class="signature-wrapper">
+        <div class="signature-content">
+          <div>Hormat kami,</div>
+          <img width="120" src="https://cdn.chatkristen.com/assets/img/signature.png" alt="Signature" />
+          <div><strong>Chat Kristen</strong></div>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
