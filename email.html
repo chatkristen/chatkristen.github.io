@@ -9,120 +9,93 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f7fa;
+      background-color: #f2f4f6;
       color: #333;
     }
     .container {
-      max-width: 600px;
-      margin: auto;
+      max-width: 620px;
+      margin: 20px auto;
       background-color: #ffffff;
-      border-radius: 8px;
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.06);
     }
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 20px;
-    }
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e0e0e0;
     }
     .logo-section img {
       height: 40px;
-      width: auto;
     }
-
     .donate-btn {
       background-color: #d94700;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: bold;
-      font-size: 14px;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 30px;
     }
     .donate-btn:hover {
       background-color: #bf3d00;
     }
-    .donate-btn svg {
-      width: 16px;
-      height: 16px;
-      fill: white;
-    }
-    .content {
-      padding: 30px 25px;
-    }
-    .content strong {
-      color: #3a7ca5;
-    }
-    .content p {
-      line-height: 1.6;
-      text-align: justify;
-      margin: 16px 0;
-    }
-
-    .content p.salutation {
-      margin: 30px 0 20px;
-    }
-
     .banner-image {
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 20px;
       display: block;
     }
-
-    .cta-wrapper {
-      margin: 50px 0 20px;
-      text-align: center;
+    .content {
+      padding: 30px 25px 30px;
+      line-height: 1.6;
+      font-size: 15px;
     }
-
+    .content p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+    .content .recipient {
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .content .salutation {
+      margin: 30px 0 20px;
+    }
+    .cta-wrapper {
+      text-align: center;
+      margin: 50px 0 50px;
+    }
     .cta-button {
-      display: inline-block;
       background-color: #3a7ca5;
       color: #fff;
-      padding: 12px 24px;
+      padding: 12px 28px;
+      font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
     }
-
     .signature-wrapper {
-      margin: 40px 0 20px;
       text-align: right;
+      margin-top: 50px;
     }
-
     .signature-content {
       display: inline-block;
       text-align: center;
     }
-
     .signature-content img {
-      display: block;
       margin: 10px auto;
     }
-
     .footer {
-      background-color: #f0f0f0;
+      background-color: #f2f2f2;
       text-align: center;
-      padding: 20px;
+      padding: 25px 20px;
       font-size: 13px;
-      color: #777;
+      color: #666;
     }
     .footer a {
       color: #3a7ca5;
+      margin: 0 6px;
       text-decoration: none;
-      margin: 0 8px;
     }
   </style>
 </head>
@@ -132,21 +105,14 @@
       <div class="logo-section">
         <img src="https://cdn.chatkristen.com/assets/img/chat_kristen.png" alt="Chat Kristen">
       </div>
-      <a href="https://www.chatkristen.com/p/donate.html" class="donate-btn">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6.01 4.01 4
-            6.5 4c1.74 0 3.41 1.01 4.22 2.61C11.09 5.01 12.76 4 14.5 4
-            16.99 4 19 6.01 19 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-        DUKUNG
-      </a>
+      <a href="https://www.chatkristen.com/p/donate.html" class="donate-btn">❤ DUKUNG</a>
     </div>
 
-    <div class="content">
-      <img src="https://cdn.chatkristen.com/assets/img/tumbnail.png" alt="Menopang Kesehatan Mental Generasi Muda" class="banner-image" />
+    <img src="https://cdn.chatkristen.com/assets/img/tumbnail.png" alt="Menopang Kesehatan Mental Generasi Muda" class="banner-image" />
 
-      <p>Kepada Yth.<br/>
-      <strong>T.H. Hari Sucahyo</strong><br/>
+    <div class="content">
+      <p class="recipient">Kepada Yth.<br/>
+        <strong>TRI HARNOTO</strong><br/>
       di Tempat</p>
 
       <p class="salutation">Salam sejahtera dalam kasih Kristus,</p>
@@ -191,9 +157,7 @@
         <a href="https://www.tiktok.com/@chatkristen">TikTok</a> |
         <a href="https://id.pinterest.com/chatkristen/">Pinterest</a>
       </p>
-      <p>
-        "Karena dari kepenuhan-Nya kita semua telah menerima kasih karunia demi kasih karunia." (Yohanes 1:16)
-      </p>
+      <p>"Karena dari kepenuhan-Nya kita semua telah menerima kasih karunia demi kasih karunia." (Yohanes 1:16)</p>
     </div>
   </div>
 </body>
