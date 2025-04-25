@@ -42,10 +42,36 @@
     .donate-btn:hover {
       background-color: #bf3d00;
     }
-    .banner-image {
+
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .image-wrapper img {
       width: 100%;
       display: block;
     }
+
+    .download-icon {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: rgba(0, 0, 0, 0.354);
+      color: white;
+      padding: 8px 10px;
+      border-radius: 5%;
+      text-decoration: none;
+      display: none;
+      font-size: 18px;
+      transition: opacity 0.3s;
+    }
+
+    .image-wrapper:hover .download-icon {
+      display: block;
+    }
+
     .content {
       padding: 30px 25px 30px;
       line-height: 1.6;
@@ -108,11 +134,16 @@
       <a href="https://www.chatkristen.com/p/donate.html" class="donate-btn">❤ DUKUNG</a>
     </div>
 
-    <img src="https://cdn.chatkristen.com/assets/img/tumbnail.png" alt="Menopang Kesehatan Mental Generasi Muda" class="banner-image" />
+    <div class="image-wrapper">
+      <img src="https://cdn.chatkristen.com/assets/img/tumbnail.png" alt="Menopang Kesehatan Mental Generasi Muda" />
+      <a class="download-icon" href="https://cdn.chatkristen.com/assets/img/tumbnail.png" download title="Unduh Gambar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M12 16c-.256 0-.512-.098-.707-.293l-5-5 1.414-1.414L11 12.586V4h2v8.586l3.293-3.293 1.414 1.414-5 5A.997.997 0 0 1 12 16zm-8 4v2h16v-2H4z"/>
+      </svg></a>
+    </div>
 
     <div class="content">
       <p class="recipient">Kepada Yth.<br/>
-        <strong>Chat Kristen</strong><br/>
+        <strong>TRI HARNOTO</strong><br/>
       di Tempat</p>
 
       <p class="salutation">Salam sejahtera dalam kasih Kristus,</p>
