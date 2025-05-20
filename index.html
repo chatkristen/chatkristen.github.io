@@ -1,168 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <title>ChatKristen | Komunitas yang Hidup dan Bertumbuh dalam Kasih Kristus</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <title>Selamat Datang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      flex-direction: column;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      transition: background 1s ease;
+      background: linear-gradient(135deg, #4a90e2, #50e3c2);
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .quote-box {
-      background: rgba(255, 255, 255, 0.08);
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       backdrop-filter: blur(10px);
-      border-radius: 18px;
-      padding: 30px 40px;
-      max-width: 800px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
       color: #fff;
-      font-size: 1.3rem;
-      box-shadow: 0 0 20px rgba(0,0,0,0.25);
-      line-height: 1.8;
-      text-align: justify;
-      position: relative;
-      transition: all 0.6s ease;
+      background-color: #ff6f61;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
 
-    .tooltip {
-      position: relative;
-      cursor: pointer;
-      border-bottom: 1px dotted #fff;
-      font-weight: bold;
-    }
-
-    .tooltip .tooltip-text {
-      visibility: hidden;
-      width: max-content;
-      max-width: 300px;
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      text-align: left;
-      border-radius: 10px;
-      padding: 10px 15px;
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.85rem;
-      font-style: italic;
-      opacity: 0;
-      transition: opacity 0.5s;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .tooltip:hover .tooltip-text {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .link-akhir {
-      color: #ffd;
-      font-weight: bold;
-      text-decoration: underline;
+    a.button:hover {
+      background-color: #e85c50;
     }
 
     footer {
-      padding: 15px 0;
-      width: 100%;
-      text-align: center;
-      color: #fff;
+      margin-top: 2rem;
       font-size: 0.9rem;
-      font-family: 'Roboto', sans-serif;
       opacity: 0.8;
-    }
-
-    @media (max-width: 600px) {
-      .quote-box {
-        font-size: 1rem;
-        padding: 25px;
-      }
     }
   </style>
 </head>
-<body id="body">
-
+<body>
   <div class="container">
-    <div class="quote-box fade-in" id="quoteBox"></div>
+    <h1>Selamat Datang</h1>
+    <p>Terima kasih telah berkunjung. Klik tombol di bawah untuk melanjutkan ke situs utama kami.</p>
+    <a class="button" href="https://www.chatkristen.com">Masuk ke Situs Utama</a>
+    <footer>&copy; 2025 ChatKristen. Semua hak dilindungi.</footer>
   </div>
-
-  <footer>&copy;ChatKristen | Komunitas yang Hidup dan Bertumbuh dalam Kasih Kristus - Diberkati untuk Memberkati</footer>
-
-  <script>
-    const quotes = [
-      `Kadang hidup terasa sepi, seperti berjalan dalam bayang-bayang tanpa cahaya. Namun dalam keheningan itu, suara-Nya memanggil, mengundang kita untuk <span class="tooltip">beristirahat<span class="tooltip-text">Matius 11:28 — Datanglah kepada-Ku, semua yang letih lesu dan berbeban berat, Aku akan memberi kelegaan.</span></span> di hadirat-Nya.`,
-      `Saat jalan terasa berat dan langkah tak pasti, Tuhan menguatkan hati kita dengan <span class="tooltip">penghiburan<span class="tooltip-text">Mazmur 94:19 — Apabila bertambah banyak pikiran dalam batinku, penghiburan-Mu menyenangkan jiwaku.</span></span>. Ia mengerti luka yang tersembunyi dan air mata yang tak terlihat.`,
-      `Dalam badai kehidupan, kita tetap disertai. Sebab Dia telah berkata, "<span class="tooltip">Aku menyertai engkau<span class="tooltip-text">Yesaya 41:10 — Jangan takut, sebab Aku menyertai engkau, jangan bimbang, sebab Aku ini Allahmu.</span></span>," dan janji-Nya tak pernah gagal.`,
-      `Terkadang, harapan tampak samar. Namun Tuhan memberikan kita <span class="tooltip">masa depan<span class="tooltip-text">Yeremia 29:11 — Sebab Aku mengetahui rancangan-rancangan mengenai kamu... rancangan damai sejahtera untuk memberikan kepadamu hari depan yang penuh harapan.</span></span>.`,
-      `Ketika dunia memalingkan wajahnya, Tuhan tetap memeluk kita. Dalam pelukan kasih-Nya, kita kembali merasakan <span class="tooltip">kedamaian<span class="tooltip-text">Yohanes 14:27 — Damai sejahtera Kutinggalkan bagimu, damai sejahtera-Ku Kuberikan kepadamu.</span></span> yang tidak tergantikan.`,
-      `Dalam setiap langkah, Tuhan menuntun kita. <span class="tooltip">Firman-Nya<span class="tooltip-text">Mazmur 119:105 — Firman-Mu adalah pelita bagi kakiku dan terang bagi jalanku.</span></span> menjadi cahaya bagi jalan hidup yang penuh misteri.`,
-      `Dan di akhir hari, kita menyadari bahwa kasih-Nya tak pernah berubah. Dia tetap setia, bahkan ketika kita lemah. Ia adalah <span class="tooltip">Gembala yang baik<span class="tooltip-text">Mazmur 23:1 — Tuhan adalah gembalaku, takkan kekurangan aku.</span></span> yang menjaga jiwa kita.`,
-      `Jika hari ini hatimu mencari arah, ketahuilah: ada harapan, ada kasih, dan ada terang yang selalu bersinar dari salib Kristus.`,
-      `Temukan lebih banyak penguatan rohani, inspirasi harian, dan cerita iman lainnya di <a href="https://www.chatkristen.com" target="_blank" class="link-akhir">www.chatkristen.com</a>.`
-    ];
-
-    const backgrounds = [
-      "linear-gradient(120deg, #2c3e50, #3498db)",
-      "linear-gradient(120deg, #8e44ad, #3498db)",
-      "linear-gradient(120deg, #16a085, #f39c12)",
-      "linear-gradient(120deg, #34495e, #e67e22)",
-      "linear-gradient(120deg, #1e3c72, #2a5298)",
-      "linear-gradient(120deg, #2980b9, #6dd5fa)",
-      "linear-gradient(120deg, #ff512f, #dd2476)",
-      "linear-gradient(120deg, #373b44, #4286f4)",
-      "linear-gradient(120deg, #141e30, #243b55)"
-    ];
-
-    const quoteBox = document.getElementById('quoteBox');
-    const body = document.getElementById('body');
-    let index = 0;
-
-    function showQuote() {
-      quoteBox.classList.remove('fade-in');
-      void quoteBox.offsetWidth;
-      quoteBox.classList.add('fade-in');
-      quoteBox.innerHTML = quotes[index];
-      body.style.background = backgrounds[index % backgrounds.length];
-
-      const duration = 4000 + quotes[index].length * 30;
-      index = (index + 1) % quotes.length;
-      setTimeout(showQuote, duration);
-    }
-
-    showQuote();
-  </script>
-
 </body>
 </html>
