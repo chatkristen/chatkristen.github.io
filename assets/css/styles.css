@@ -1,294 +1,112 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
-.sky {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  transition: background 2s ease;
-  overflow: hidden;
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
 }
 
-.sun, .moon {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  transition: bottom 2s ease, opacity 2s ease;
-  z-index: 2;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.sun {
-  background: radial-gradient(circle, #FFD700, #FFA500);
-  box-shadow: 0 0 80px rgba(255, 200, 0, 0.6);
+.brand {
+    margin-right: 20px;
 }
 
-.moon {
-  background: radial-gradient(circle, #ddd, #aaa);
-  box-shadow: 0 0 60px rgba(255,255,255,0.3);
-  opacity: 0;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
 }
 
-.cloud {
-  width: 175px; 
-  height: 60px;
-  background: #f2f9fe;  
-  background: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.05, #f2f9fe), to(#d6f0fd));
-  background: -webkit-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
-  background: -moz-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
-  background: -o-linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
-  background: linear-gradient(#f2f9fe 5%, #d6f0fd 100%);
-  border-radius: 100px;
-  position: absolute;
-  animation: moveCloud linear infinite;
-  filter: blur(1px);
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.cloud::before, .cloud::after {
-  content: "";
-  position: absolute;
-  background: #f2f9fe;
-  z-index: -1;
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
 }
 
-.cloud::before {
-  width: 50px;
-  height: 50px;
-  top: -25px;
-  right: 25px;
-  border-radius: 200px;
+.menu a {
+    color: #fff;
+    text-decoration: none;
 }
 
-.cloud::after {
- width: 90px;
-  height: 90px;
-  top: -45px;
-  left: 25px;
-  border-radius: 100px;
+.burger-menu {
+    display: none;
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
 }
 
-.shadow {
-  width: 150px;
-  position: absolute;
-  bottom: -10px;
-  left: 10px;  
-  background: #000;
-  z-index: -1;
-  -webkit-box-shadow: 0 0 25px 8px rgba(0,0,0,0.4);
-  box-shadow: 0 0 25px 3px rgba(0,0,0,0.3);
-  border-radius: 50%;
+.hero {
+    background-image: linear-gradient(to bottom, #333, #555);
+    background-size: 100% 300px;
+    background-position: 0% 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
-#cloudsBack, #cloudsFront {
-  transition: opacity 1.5s ease;
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-@keyframes moveCloud {
-  0% { left: -300px; }
-  100% { left: 120%; }
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
+button {
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
 }
 
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: twinkle 2s infinite alternate;
+button a {
+    text-decoration: none;
+    color: #fff;
 }
 
-@keyframes twinkle {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
 }
 
-.bird {
-  position: absolute;
-  height: auto;
-  animation: fly linear infinite;
+.social-media {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
-@keyframes fly {
-  0%   { transform: translateX(-100px); }
-  100% { transform: translateX(120vw); }
+.social-media li {
+    margin-right: 20px;
 }
 
-.rain-drop {
-  position: absolute;
-  width: 2px;
-  height: 12px;
-  background: rgba(255,255,255,0.6);
-  animation: fall linear infinite;
-  z-index: 4;
+.social-media a {
+    color: #fff;
+    text-decoration: none;
 }
-
-@keyframes fall {
-  0% { top: -20px; }
-  100% { top: 110%; }
-}
-
-.clouds-back, .clouds-front, .birds, .rain {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.clouds-front .cloud {
-  z-index: 3;
-}
-
-
-.clouds-back .cloud {
-  z-index: 1;
-  opacity: 0.6;
-}
-
-.clouds-front .cloud {
-  filter: blur(1px);
-  opacity: 0.9;
-}
-
-.cloud.rainy {
-  background: #ccc;
-}
-
-.cloud.rainy::before,
-.cloud.rainy::after {
-  background: #ccc;
-}
-
-.cloud-dark .cloud {
-  background: #cccccc;
-  filter: brightness(0.7);
-}
-
-.cloud-dark .cloud::before,
-.cloud-dark .cloud::after {
-  background: #cccccc;
-}
-
-.quote-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 360px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  color: #333;
-  z-index: 5;
-  font-family: sans-serif;
-}
-
-.quote-profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.quote-dark {
-  color: #fff;
-}
-.quote-light {
-  color: #222;
-}
-
-.profile-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-  border: 2px solid white;
-}
-
-.quote-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.quote-handle {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.quote-text {
-  font-size: 16px;
-  margin: 12px 0;
-  line-height: 1.5;
-}
-
-.quote-tags {
-  font-size: 13px;
-  color: #666;
-  text-align: center;
-}
-
-.audio-toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 14px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  animation: toastIn 0.5s ease-out forwards;
-}
-
-.toast-play-btn {
-  padding: 6px 12px;
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 13px;
-}
-
-.toast-play-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-@keyframes toastIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
