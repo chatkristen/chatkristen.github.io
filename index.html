@@ -1,116 +1,48 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <title>Selamat Datang</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      --glass-bg: rgba(255, 255, 255, 0.12);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --glass-hover: rgba(255, 255, 255, 0.2);
-      --text-color: #ffffff;
-      --text-subtle: #e0e0e0;
-      --button-bg: rgba(255, 255, 255, 0.18);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: var(--bg-gradient);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .glass-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 20px;
-      padding: 2.5rem;
-      text-align: center;
-      color: var(--text-color);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      max-width: 420px;
-      width: 100%;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      color: var(--text-subtle);
-    }
-
-    .button {
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      border-radius: 10px;
-      background: var(--button-bg);
-      border: 1px solid var(--glass-border);
-      color: white;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
-      display: inline-block;
-    }
-
-    .button:hover {
-      background: var(--glass-hover);
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #ccc;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 480px) {
-      .glass-card {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      p {
-        font-size: 0.95rem;
-      }
-
-      .button {
-        font-size: 0.95rem;
-        padding: 0.6rem 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Kristen - Renungan dan Kehidupan</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/dist/js/all.min.js"></script>
 </head>
 <body>
-  <div class="glass-card">
-    <h1>Selamat Datang</h1>
-    <p>Terima kasih telah berkunjung. Klik tombol di bawah untuk melanjutkan ke situs utama kami.</p>
-    <a class="button" href="https://www.chatkristen.com">Masuk ke Situs Utama</a>
-    <footer>&copy; 2025 ChatKristen. Semua hak dilindungi.</footer>
-  </div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="brand">
+                <a href="#" class="logo">Chat Kristen</a>
+            </div>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Renungan</a></li>
+                <li><a href="#">Kehidupan</a></li>
+            </ul>
+            <button class="burger-menu" aria-label="Toggle Menu">
+                <span class="icon"></span>
+            </button>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Chat Kristen - Renungan dan Kehidupan</h1>
+                <p>Mari kita berbagi renungan dan kehidupan dalam komunitas ChatKristen!</p>
+                <button><a href="#">Mulai Berdiskusi Sekarang!</a></button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 ChatKristen. Semua hak cipta dilindungi.</p>
+            <ul class="social-media">
+                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
-
